@@ -1,0 +1,199 @@
+.body{
+}
+/*If media is less than 600px set the grid into four rows*/
+.container{
+    /* Set display to grid */
+    display: grid;
+    width: 90%;
+    margin: auto;
+      /* Setup row and columns */
+    grid-template-rows: 100px 150px 600px 50px;
+    grid-template-columns: auto;
+    grid-template-areas:
+    "hd"
+    "nav"
+    "cont"
+    "ft";
+    grid-gap: 5px;
+    border: 2px solid black;
+    justify-content: center;
+    padding: 5px;
+}
+
+.box{
+    display: flex;
+    border: 1px solid #009975;
+    background: #e6ffff;
+}
+
+.header{
+    grid-area: hd;
+    border: 1px solid #009975;
+    background: #e6fffa;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.navigation{
+    grid-area: nav;
+    border: 1px solid #009975;
+    background: #e6fffa;
+}
+.navigation ul{
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.button{
+    background-color: #009975;
+    border: none;
+    border-radius:10px;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.content{
+    grid-area: cont;
+    display: flex;
+    border: 1px solid #009975;
+    background: #e6fffa;
+}
+
+.footer{
+    grid-area: ft;
+    border: 1px solid #009975;
+    background-color: #e6fffa;
+    overflow: hidden;
+}
+
+/*style the container containing all the cards. */
+/*This will be a nested grid to display two cards in rows & columns depending
+on media size*/
+/*Media less than 600px set the cards one above the other, ie. in two rows */
+#cards{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: minmax(250px, 1fr) );
+    grid-gap: 10px;
+    border: 2px solid #009975;
+    padding: 15px;
+    margin: 1em 1em 1em;
+}
+
+/*Style each card with: Heading,Image,Blurb, & Link to post*/
+.card{
+    display: grid;
+    grid-template-rows: max-content 30% 40% 10%;
+    border: 1px solid black;
+    background-color: #f3fffc;
+    height: auto;
+    padding: 5px;
+}
+
+/* Style each of Heading, Image, Blurb, & Link in the card*/
+.card h3{
+    margin: 0;
+    padding: .1rem;
+    display: flex;
+}
+
+.card img{
+    object-fit:: contain;
+    object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+}
+
+.card p{
+    margin: 0;
+    padding: .5rem;
+    display: flex;
+    overflow: auto;
+}
+
+.card blogPost{
+    margin: 0;
+    padding: .5rem;
+    display: flex;
+    object-position: bottom left;
+}
+
+#blog1Card{
+  order: 1;
+  border: 1px solid black;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#blog2Card{
+  order: 2;
+  border: 1px solid black;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* If media is between 600px  & 900px place cards one above the other ie. in
+two rows*/
+@media (min-width:601px) and (max-width:900px){
+    .container{
+        /* Set display to grid */
+        display: grid;
+        width: 90%;
+        margin: auto;
+        /* Setup row and columns */
+        grid-template-rows: 100px 500px 100px;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+        "hd hd hd hd hd hd hd hd"
+        "nav nav cont cont cont cont cont cont"
+        "ft ft ft ft ft ft ft ft";
+        grid-gap: 15px;
+        border: 2px solid black;
+        justify-content: center;
+        padding: 15px;
+    }
+    #cards{
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: minmax(250px, 1fr) );
+        grid-gap: 15px;
+        border: 2px solid black;
+        padding: 15px;
+        margin: 1em 1em 1em;
+    }
+}
+
+/* If Media is greater than 900px then set navigation in the middle row next to
+content. Set the cards in two columns next to each other*/
+@media (min-width:901px) {
+    .container{
+        /* Set display to grid */
+        display: grid;
+        width: 90%;
+        margin: auto;
+        /* Setup row and columns */
+        grid-template-rows: 100px 500px 100px;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas:
+        "hd hd hd hd hd hd hd hd"
+        "nav nav cont cont cont cont cont cont"
+        "ft ft ft ft ft ft ft ft";
+        grid-gap: 15px;
+        border: 2px solid black;
+        justify-content: center;
+        padding: 15px;
+    }
+    #cards{
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: repeat( 2, minmax(250px, 1fr) );
+        grid-gap: 15px;
+        border: 2px solid black;
+        padding: 15px;
+        margin: 1em 1em 1em;
+    }
+}
